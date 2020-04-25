@@ -1,17 +1,25 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <fullList :list="overview">
+    </fullList>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
+import ConnectionList from "@/components/ConnectionList";
+
+const list = [{id: 0, name: "Rens", secret: "test"}, {id: 0, name: "Peter", secret: "nothing"}, {id: 0, name: "Henk", secret: "vue"}, ];
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    "fullList": ConnectionList
+  },
+  data: function(){
+    return {
+      overview: list
+    }
   }
 }
 </script>
