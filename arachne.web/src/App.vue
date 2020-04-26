@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <page-header></page-header>
-    <router-view class="container" id="mainAppContainer"></router-view>
+    <router-view class="container pt-5 pb-5" id="mainAppContainer"></router-view>
     <page-footer></page-footer>
   </div>
 </template>
@@ -37,5 +37,6 @@ import PageFooter from "@/components/PageFooter";
 
   #mainAppContainer{
     min-height: 20vh;
+    background: #FEFFFD;
   }
 </style>

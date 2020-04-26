@@ -1,5 +1,5 @@
 <template>
-    <div>{{ connection.name }}</div>
+    <li class="list-group-item list-group-item-action">{{ connection.name }}</li>
 </template>
 
 <script>
