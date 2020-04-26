@@ -1,26 +1,13 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <fullList :list="overview">
-    </fullList>
+    <router-view class="view"></router-view>
   </div>
 </template>
 
 <script>
-
-import ConnectionList from "@/components/ConnectionList";
-
-const list = [{id: 0, name: "Rens", secret: "test"}, {id: 1, name: "Peter", secret: "nothing"}, {id: 2, name: "Henk", secret: "vue"}, ];
 export default {
-  name: 'App',
-  components: {
-    "fullList": ConnectionList
-  },
-  data: function(){
-    return {
-      overview: list
-    }
-  }
+  name: 'App'
 }
 </script>
 

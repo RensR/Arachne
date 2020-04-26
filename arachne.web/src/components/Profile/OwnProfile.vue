@@ -1,15 +1,12 @@
 <template>
     <div>
         <profile :user="user"></profile>
-        <p>{{user}}</p>
     </div>
-
-
 </template>
 
 <script>
     import Profile from "@/components/Profile/Profile";
-    import axios from 'axios';
+    import {FETCH_PROFILE} from "@/store/actions.type";
 
     export default {
         name: "OwnProfile",
@@ -24,9 +21,8 @@
             }
         },
         mounted () {
-            axios
-                .get(' http://localhost:7071/api/v1/users/aa30096f-92d2-4577-8870-275dede203f1')
-                .then(response => (this.user = response.data))
+            this.$store.dispatch(FETCH_PROFILE, "AA30096F-92D2-4577-8870-275DEDE203F1")
+            .then(user => this.user = user)
         }
     }
 </script>
