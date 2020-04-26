@@ -15,7 +15,7 @@
         name: "ConnectionList",
         components: {ConnectionListItem},
         props: {
-            list: []
+            list: Array
         }
     }
 </script>
