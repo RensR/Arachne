@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Arachne.Data.Migrations
 {
     [DbContext(typeof(ArachneContext))]
-    [Migration("20200426085814_initUser")]
+    [Migration("20200426090734_initUser")]
     partial class initUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
