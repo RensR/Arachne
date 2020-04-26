@@ -2,9 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from "./store";
 import VueRouter from 'vue-router'
-import OwnProfile from "@/components/Profile/OwnProfile";
 import ApiService from "@/common/api.service";
-import ConnectionList from "@/components/ConnectionList";
+import Home from "@/views/Home";
+import OwnProfile from "@/components/Profile/OwnProfile";
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -15,7 +19,7 @@ const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', component: ConnectionList },
+    { path: '/', component: Home },
     { path: '/user', component: OwnProfile },
   ]
 });
