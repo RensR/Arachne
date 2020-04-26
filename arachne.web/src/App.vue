@@ -10,7 +10,7 @@
 
 import ConnectionList from "@/components/ConnectionList";
 
-const list = [{id: 0, name: "Rens", secret: "test"}, {id: 0, name: "Peter", secret: "nothing"}, {id: 0, name: "Henk", secret: "vue"}, ];
+const list = [{id: 0, name: "Rens", secret: "test"}, {id: 1, name: "Peter", secret: "nothing"}, {id: 2, name: "Henk", secret: "vue"}, ];
 export default {
   name: 'App',
   components: {
