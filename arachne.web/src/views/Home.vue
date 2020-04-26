@@ -1,5 +1,5 @@
 <template>
-    <div id="container">
+    <div>
         <OwnProfile></OwnProfile>
         <connection-list></connection-list>
     </div>
@@ -15,7 +15,4 @@
 </script>
 
 <style scoped>
-#container{
-
-}
 </style>
