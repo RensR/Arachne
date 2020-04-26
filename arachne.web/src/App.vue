@@ -1,14 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <router-view class="view"></router-view>
+    <page-header></page-header>
+    <router-view class="container pt-5 pb-5" id="mainAppContainer"></router-view>
+    <page-footer></page-footer>
   </div>
 </template>
 
 <script>
+import PageHeader from "@/components/PageHeader";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {PageFooter, PageHeader}
 }
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+import PageFooter from "@/components/PageFooter";
 </script>
 
 <style>
@@ -19,5 +26,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  min-height: 80vh;
 }
+
+  body{
+    min-height: 80vh;
+    position: relative;
+    background: #EEF4ED;
+  }
+
+  #mainAppContainer{
+    min-height: 20vh;
+    background: #FEFFFD;
+  }
 </style>

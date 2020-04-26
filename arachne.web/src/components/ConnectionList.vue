@@ -1,12 +1,16 @@
 <template>
-    <ul>
+    <div class="col-8">
+    <p>Connections</p>
+    <div class="list-group">
+        <ul class="list-group list-group-flush">
         <ConnectionListItem
                 v-for="user in list"
                 :connection="user"
                 v-bind:key="user.id">
         </ConnectionListItem>
-    </ul>
-
+        </ul>
+    </div>
+    </div>
 </template>
 
 <script>
