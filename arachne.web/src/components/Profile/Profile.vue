@@ -1,11 +1,10 @@
 <template>
     <div>
-        <p>{{user.firstName}}</p>
+        <p>{{user.firstName}} {{user.lastName}}</p>
     </div>
 </template>
 
 <script>
-
     export default {
         name: "Profile",
         props: {

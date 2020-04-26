@@ -9,8 +9,7 @@
             connection: {
                 type: Object,
                 required: true
-            },
-            key: Number
+            }
         }
     }
 </script>
