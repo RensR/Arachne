@@ -55,33 +55,33 @@ jobs:
         inputs:
           PathtoPublish: '$(build.artifactstagingdirectory)'
           
-    - job: frontend
-      displayName: Build Vue.js solution
-      pool:
-        vmImage: "ubuntu-16.04"
-      steps:
-        - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreAndSaveCacheV1.RestoreAndSaveCache@1
-          inputs:
-            keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
-            targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
-            vstsFeed: '$(ArtifactFeed)'
-            workingDir: 'arachne.web'
-
-        - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
-          displayName: 'yarn'
-          inputs:
-            projectDirectory: 'arachne.web'
-
-        - task: Npm@1
-          displayName: 'Run production build'
-          inputs:
-            command: custom
-            verbose: false
-            customCommand: 'run build'
-            workingDir: 'arachne.web'
-
-        - task: PublishBuildArtifacts@1
-          displayName: 'Publish Artifact: arachne-front-end'
-          inputs:
-            PathtoPublish: 'arachne.web/dist/front-end'
-            ArtifactName: 'arachne-front-end'
+  - job: frontend
+    displayName: Build Vue.js solution
+    pool:
+      vmImage: "ubuntu-16.04"
+    steps:
+      - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreAndSaveCacheV1.RestoreAndSaveCache@1
+        inputs:
+          keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
+          targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
+          vstsFeed: '$(ArtifactFeed)'
+          workingDir: 'arachne.web'
+  
+      - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+        displayName: 'yarn'
+        inputs:
+          projectDirectory: 'arachne.web'
+  
+      - task: Npm@1
+        displayName: 'Run production build'
+        inputs:
+          command: custom
+          verbose: false
+          customCommand: 'run build'
+          workingDir: 'arachne.web'
+  
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: arachne-front-end'
+        inputs:
+          PathtoPublish: 'arachne.web/dist/front-end'
+          ArtifactName: 'arachne-front-end'
