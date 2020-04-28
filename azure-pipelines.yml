@@ -66,6 +66,14 @@ jobs:
           targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
           vstsFeed: '$(ArtifactFeed)'
           platformIndependent: true
+          
+      - task: CacheBeta@0
+        inputs:
+          key: |
+            $(Agent.OS)
+            $(Build.SourcesDirectory)/arachne.web/yarn.lock
+          path: $(Pipeline.Workspace)/.cache/yarn
+        displayName: 'Cache yarn'
     
       - task: Yarn@3
         displayName: 'yarn'
