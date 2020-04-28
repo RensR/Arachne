@@ -1,0 +1,5 @@
+{
+    "ConnectionStrings": {
+        "ArachneDatabase" : "Data Source=localhost;Initial Catalog=Arachne;User ID=sa;Password=Password1!"
+    }
+}
