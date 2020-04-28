@@ -69,10 +69,8 @@ jobs:
           
       - task: CacheBeta@0
         inputs:
-          key: |
-            $(Agent.OS)
-            $(Build.SourcesDirectory)/arachne.web/yarn.lock
-          path: $(Pipeline.Workspace)/.cache/yarn
+          key: $(Agent.OS) | $(Build.SourcesDirectory)/arachne.web/yarn.lock
+          path: $(Pipeline.Workspace)/arachne.web/.cache/yarn
         displayName: 'Cache yarn'
     
       - task: Yarn@3
