@@ -1,0 +1,87 @@
+name: $(SourceBranchName)-$(date:yyyy-MM-dd).$(rev:rr)
+
+variables:
+  BuildConfiguration: Release
+  Parameters.RestoreBuildProjects: "**/*.csproj"
+  NUGET_PACKAGES: $(Build.SourcesDirectory)/packages
+  MigrationLocation: '$(Build.SourcesDirectory)/Arachne.Data/Arachne.Data.csproj'
+
+trigger:
+  branches:
+    include:
+      - '*'
+
+jobs:
+  - job: backend
+    displayName: Build Azure Functions solution
+    pool:
+      vmImage: "ubuntu-16.04"
+    steps:
+      - task: DotNetCoreCLI@2
+        displayName: Install dotnet-ef tools
+        inputs:
+          command: custom
+          custom: tool
+          arguments: install --global dotnet-ef
+
+      - script: dotnet restore
+        displayName: Restore
+
+      - task: DotNetCoreCLI@2
+        displayName: Build & Publish
+        inputs:
+          command: publish
+          publishWebProjects: false
+          projects: '$(Parameters.RestoreBuildProjects)'
+          arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+          zipAfterPublish: True
+      
+      - task: UseDotNet@2
+        displayName: ‘Use .NET Core 3.1.x SDK’
+        inputs:
+          packageType: sdk
+          version: 3.1.x
+          installationPath: $(Agent.ToolsDirectory)/dotnet
+
+      - task: DotNetCoreCLI@2
+        displayName: 'Generate SQL Migration scripts'
+        inputs:
+          command: custom
+          custom: ef
+          arguments: 'migrations script -i --project $(MigrationLocation) --startup-project $(MigrationLocation) -o $(build.artifactstagingdirectory)/Migrations/scripts.sql'
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact'
+        inputs:
+          PathtoPublish: '$(build.artifactstagingdirectory)'
+          
+    - job: frontend
+      displayName: Build Vue.js solution
+      pool:
+        vmImage: "ubuntu-16.04"
+      steps:
+        - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreAndSaveCacheV1.RestoreAndSaveCache@1
+          inputs:
+            keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
+            targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
+            vstsFeed: '$(ArtifactFeed)'
+            workingDir: 'front-end'
+
+        - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+          displayName: 'yarn'
+          inputs:
+            projectDirectory: 'front-end'
+
+        - task: Npm@1
+          displayName: 'Run production build'
+          inputs:
+            command: custom
+            verbose: false
+            customCommand: 'run build'
+            workingDir: 'front-end'
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact: arachne-front-end'
+          inputs:
+            PathtoPublish: 'front-end/dist/front-end'
+            ArtifactName: 'arachne-front-end'

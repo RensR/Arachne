@@ -11,7 +11,7 @@ namespace Arachne.Data
         { 
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile(Directory.GetCurrentDirectory() + "/../Arachne.API/local.settings.json")
+                .AddJsonFile(Directory.GetCurrentDirectory() + "/local.settings.json")
                 .Build(); 
             var builder = new DbContextOptionsBuilder<ArachneContext>(); 
             var connectionString = configuration.GetConnectionString("ArachneDatabase"); 
