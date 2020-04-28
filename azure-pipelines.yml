@@ -65,12 +65,12 @@ jobs:
             keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
             targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
             vstsFeed: '$(ArtifactFeed)'
-            workingDir: 'front-end'
+            workingDir: 'arachne.web'
 
         - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
           displayName: 'yarn'
           inputs:
-            projectDirectory: 'front-end'
+            projectDirectory: 'arachne.web'
 
         - task: Npm@1
           displayName: 'Run production build'
@@ -78,10 +78,10 @@ jobs:
             command: custom
             verbose: false
             customCommand: 'run build'
-            workingDir: 'front-end'
+            workingDir: 'arachne.web'
 
         - task: PublishBuildArtifacts@1
           displayName: 'Publish Artifact: arachne-front-end'
           inputs:
-            PathtoPublish: 'front-end/dist/front-end'
+            PathtoPublish: 'arachne.web/dist/front-end'
             ArtifactName: 'arachne-front-end'
