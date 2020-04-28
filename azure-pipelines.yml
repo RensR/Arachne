@@ -65,9 +65,11 @@ jobs:
           keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
           targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
           vstsFeed: '$(ArtifactFeed)'
-  
+          platformIndependent: true
+    
       - task: Yarn@3
         displayName: 'yarn'
+        condition: ne(variables['CacheRestored'], 'true')
         inputs:
           projectDirectory: 'arachne.web'
   
