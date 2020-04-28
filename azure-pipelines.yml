@@ -82,5 +82,5 @@ jobs:
       - task: PublishBuildArtifacts@1
         displayName: 'Publish Artifact: arachne-front-end'
         inputs:
-          PathtoPublish: 'arachne.web/dist/front-end'
+          PathtoPublish: 'arachne.web/dist'
           ArtifactName: 'arachne-front-end'
