@@ -60,14 +60,13 @@ jobs:
     pool:
       vmImage: "ubuntu-16.04"
     steps:
-      - task: 1ESLighthouseEng.PipelineArtifactCaching.RestoreAndSaveCacheV1.RestoreAndSaveCache@1
+      - task: RestoreAndSaveCache@1
         inputs:
           keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
           targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
           vstsFeed: '$(ArtifactFeed)'
-          workingDir: 'arachne.web'
   
-      - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@2
+      - task: Yarn@3
         displayName: 'yarn'
         inputs:
           projectDirectory: 'arachne.web'
