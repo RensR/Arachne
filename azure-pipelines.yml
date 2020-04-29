@@ -5,6 +5,7 @@ variables:
   Parameters.RestoreBuildProjects: "**/*.csproj"
   NUGET_PACKAGES: $(Build.SourcesDirectory)/packages
   MigrationLocation: '$(Build.SourcesDirectory)/Arachne.Data/Arachne.Data.csproj'
+  YARN_CACHE_FOLDER: $(Build.SourcesDirectory)/arachne.web/.yarn
 
 trigger:
   branches:
@@ -60,12 +61,12 @@ jobs:
     pool:
       vmImage: "ubuntu-16.04"
     steps:
-      - task: RestoreAndSaveCache@1
+      - task: Cache@2
         inputs:
-          keyfile: '**/yarn.lock, !**/node_modules/**/yarn.lock, !**/.*/**/yarn.lock'
-          targetfolder: '**/node_modules, !**/node_modules/**/node_modules'
-          vstsFeed: '$(ArtifactFeed)'
-  
+          key: 'yarn | "$(Agent.OS)" | $(Build.SourcesDirectory)/arachne.web/yarn.lock'
+          path: $(YARN_CACHE_FOLDER)
+        displayName: Cache Yarn packages
+    
       - task: Yarn@3
         displayName: 'yarn'
         inputs:
