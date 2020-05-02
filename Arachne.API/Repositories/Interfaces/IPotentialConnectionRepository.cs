@@ -5,7 +5,7 @@ namespace Arachne.API.Repositories.Interfaces
 {
     public interface IPotentialConnectionRepository
     {
-        void ProposeConnection(User from, User to, string introduction);
+        PotentialConnection ProposeConnection(User from, User to, string introduction);
 
         void RemovePotentialConnection(PotentialConnection potentialConnection);
 

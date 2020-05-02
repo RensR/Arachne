@@ -16,7 +16,7 @@ namespace Arachne.API.Repositories
             _arachneContext = arachneContext;
         }
 
-        public void ProposeConnection(User from, User to, string introduction)
+        public PotentialConnection ProposeConnection(User from, User to, string introduction)
         {
             var potentialConnection = new PotentialConnection
             {
@@ -27,6 +27,7 @@ namespace Arachne.API.Repositories
             };
             _arachneContext.PotentialConnections.Add(potentialConnection);
             _arachneContext.SaveChanges();
+            return potentialConnection;
         }
 
         public void RemovePotentialConnection(PotentialConnection potentialConnection)

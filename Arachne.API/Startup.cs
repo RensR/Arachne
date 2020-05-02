@@ -2,6 +2,8 @@ using System;
 using Arachne.API;
 using Arachne.API.Repositories;
 using Arachne.API.Repositories.Interfaces;
+using Arachne.API.Services;
+using Arachne.API.Services.Interfaces;
 using Arachne.API.Settings;
 using Arachne.Data;
 using Microsoft.Azure.WebJobs;
@@ -40,6 +42,7 @@ namespace Arachne.API
             builder.Services.Configure<ConnectionStrings>(config.GetSection("ConnectionStrings"));
 
             AddRepositories(builder);
+            AddServices(builder);
         }
 
         private static void AddRepositories(IWebJobsBuilder builder)
@@ -48,6 +51,11 @@ namespace Arachne.API
             builder.Services.AddScoped<IAdminRepository, AdminRepository>();
             builder.Services.AddScoped<IConnectionRepository, ConnectionRepository>();
             builder.Services.AddScoped<IPotentialConnectionRepository, PotentialConnectionRepository>();
+        }
+
+        private static void AddServices(IWebJobsBuilder builder)
+        {
+            builder.Services.AddScoped<IConnectionService, ConnectionService>();
         }
     }
 }
