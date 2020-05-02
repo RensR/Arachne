@@ -1,3 +1,4 @@
+using System;
 using Arachne.Data.Enums;
 
 namespace Arachne.Data.Models
@@ -11,5 +12,7 @@ namespace Arachne.Data.Models
         public Permission Permission { get; set; }
         
         public string Note { get; set; }
+        
+        public DateTime Created { get; set; }
     }
 }
