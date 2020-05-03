@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Arachne.Data.Models;
 
@@ -12,5 +13,7 @@ namespace Arachne.API.Repositories.Interfaces
         PotentialConnection GetPotentialConnection(long id);
 
         List<PotentialConnection> GetAllPotentialConnectionForUser(User user);
+
+        List<PotentialConnection> GetAllPotentialConnectionForUser(Guid userId);
     }
 }

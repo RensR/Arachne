@@ -38,6 +38,8 @@ namespace Arachne.API
         private static void ConfigureBuilder(IWebJobsBuilder builder, IConfiguration config)
         {
             builder.Services.AddOptions();
+            builder.Services.AddLogging();
+            builder.Services.AddHttpClient();
             builder.Services.Configure<AppSettings>(config);
             builder.Services.Configure<ConnectionStrings>(config.GetSection("ConnectionStrings"));
 

@@ -45,5 +45,10 @@ namespace Arachne.API.Repositories
         {
             return _arachneContext.PotentialConnections.Where(pot => pot.To == user).ToList();
         }
+
+        public List<PotentialConnection> GetAllPotentialConnectionForUser(Guid userId)
+        {
+            return _arachneContext.PotentialConnections.Where(pot => pot.To.Guid == userId).ToList();
+        }
     }
 }
