@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Arachne.API.Utilities.Option;
 using Arachne.Data.Models;
+using SomeNone;
+using SomeNone.Extensions;
 
 namespace Arachne.API.Models.Dto
 {
