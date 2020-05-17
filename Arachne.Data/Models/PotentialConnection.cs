@@ -1,22 +1,19 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using Arachne.Data.Enums;
 
 namespace Arachne.Data.Models
 {
-    public class Connection
+    public class PotentialConnection
     {
         [Key]
         public long Id { get; set; }
+        
+        public DateTime Created { get; set; }
         
         public virtual User From { get; set; }
         
         public virtual User To { get; set; }
         
-        public Permission Permission { get; set; }
-        
-        public string Note { get; set; }
-        
-        public DateTime Created { get; set; }
+        public string Introduction { get; set; }
     }
 }

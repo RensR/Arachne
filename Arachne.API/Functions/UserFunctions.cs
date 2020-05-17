@@ -19,7 +19,7 @@ namespace Arachne.API.Functions
         }
 
         [FunctionName("GetUserById")]
-        public async Task<IActionResult> GetUserById(
+        public IActionResult GetUserById(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "v1/users/{id}")]
             HttpRequest req,
             Guid id)
