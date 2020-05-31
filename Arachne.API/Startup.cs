@@ -11,6 +11,7 @@ using Microsoft.Azure.WebJobs.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Okta.AspNetCore;
 
 [assembly: WebJobsStartup(typeof(Startup))]
 

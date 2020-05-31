@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.Data", "Arachne.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.Test", "Arachne.Test\Arachne.Test.csproj", "{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.API.ASP", "Arachne.API.ASP\Arachne.API.ASP.csproj", "{C5074553-6C4B-4941-BFA3-38B1A908F973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
