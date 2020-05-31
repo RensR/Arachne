@@ -1,21 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Okta.AspNetCore;
 
 namespace Arachne.API.ASP
 {
     public class Startup
     {
+        private const string CorsPolicyName = "AllowAll";
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -40,9 +35,9 @@ namespace Arachne.API.ASP
             services.AddCors(options =>
             {
                 // The CORS policy is open for testing purposes. In a production application, you should restrict it to known origins.
-                options.AddPolicy(
-                    "AllowAll",
-                    builder => builder.AllowAnyOrigin()
+                options.AddDefaultPolicy(
+                    builder => builder
+                        .WithOrigins("http://localhost:8080")
                         .AllowAnyMethod()
                         .AllowAnyHeader());
             });
@@ -67,9 +62,10 @@ namespace Arachne.API.ASP
             
             app.UseAuthentication();
 
-            app.UseAuthorization();
             app.UseCors();
-
+            
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
