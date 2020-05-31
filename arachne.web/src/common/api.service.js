@@ -4,7 +4,7 @@ import VueAxios from "vue-axios";
 import { API_URL } from "@/common/config";
 
 const ApiService = {
-    init() {
+    async init() {
         Vue.use(VueAxios, axios);
         Vue.axios.defaults.baseURL = API_URL;
     },
@@ -14,8 +14,17 @@ const ApiService = {
         });
     },
 
-    get(resource, slug = "") {
-        return Vue.axios.get(`${resource}/${slug}`).catch(error => {
+    async get(authToken, resource, slug = "") {
+        console.log("TESTINIG INSIDE GET")
+        console.log(authToken);
+        resource =  "WeatherForecast";
+        slug = "";
+        return Vue.axios.get(`${resource}/${slug}`,{
+            headers: {
+                Authorization: 'Bearer ' + authToken
+            }
+        }).catch(error => {
+            console.log(error.data)
             throw new Error(`[RWV] ApiService ${error}`);
         });
     },
@@ -42,8 +51,8 @@ const ApiService = {
 export default ApiService;
 
 export const UserService = {
-    get(slug){
-        return ApiService.get("users", slug)
+    async get(authToken, slug){
+        return ApiService.get(authToken, "users", slug)
     }
 };
 
