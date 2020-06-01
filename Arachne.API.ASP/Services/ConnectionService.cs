@@ -1,10 +1,10 @@
 using System;
-using Arachne.API.Models.Dto;
-using Arachne.API.Repositories;
-using Arachne.API.Services.Interfaces;
+using Arachne.API.ASP.Models.Dto;
+using Arachne.API.ASP.Repositories;
+using Arachne.API.ASP.Services.Interfaces;
 using Arachne.Data.Models;
 
-namespace Arachne.API.Services
+namespace Arachne.API.ASP.Services
 {
     public class ConnectionService : IConnectionService
     {

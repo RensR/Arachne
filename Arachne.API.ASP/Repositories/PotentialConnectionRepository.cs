@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Arachne.API.Repositories.Interfaces;
+using Arachne.API.ASP.Repositories.Interfaces;
 using Arachne.Data;
 using Arachne.Data.Models;
 
-namespace Arachne.API.Repositories
+namespace Arachne.API.ASP.Repositories
 {
     public class PotentialConnectionRepository : IPotentialConnectionRepository
     {

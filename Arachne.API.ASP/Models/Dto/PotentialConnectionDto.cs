@@ -4,7 +4,7 @@ using Arachne.Data.Models;
 using SomeNone;
 using SomeNone.Extensions;
 
-namespace Arachne.API.Models.Dto
+namespace Arachne.API.ASP.Models.Dto
 {
     public class PotentialConnectionDto
     {

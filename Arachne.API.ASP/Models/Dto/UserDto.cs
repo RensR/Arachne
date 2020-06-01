@@ -1,7 +1,7 @@
 using System;
 using Arachne.Data.Models;
 
-namespace Arachne.API.Models.Dto
+namespace Arachne.API.ASP.Models.Dto
 {
     public class UserDto
     {

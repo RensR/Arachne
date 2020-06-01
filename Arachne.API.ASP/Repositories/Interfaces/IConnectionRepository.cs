@@ -1,4 +1,4 @@
-namespace Arachne.API.Repositories.Interfaces
+namespace Arachne.API.ASP.Repositories.Interfaces
 {
     public interface IConnectionRepository
     {
