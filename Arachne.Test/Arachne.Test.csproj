@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Arachne.API\Arachne.API.csproj" />
+      <ProjectReference Include="..\Arachne.API.ASP\Arachne.API.ASP.csproj" />
       <ProjectReference Include="..\Arachne.Data\Arachne.Data.csproj" />
     </ItemGroup>
 
