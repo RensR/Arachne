@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -11,9 +12,13 @@ namespace Arachne.API.ASP.Utilities
         {
             var email = claims
                 .SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier)
-                ?.Value;
-            var firstName = claims.SingleOrDefault(c => c.Type == ClaimTypes.GivenName)?.Value;
-            var lastName = claims.SingleOrDefault(c => c.Type == ClaimTypes.Surname)?.Value;
+                ?.Value ?? throw new ArgumentException();
+            var firstName = claims
+                .SingleOrDefault(c => c.Type == "FirstName")
+                ?.Value ?? throw new ArgumentException();
+            var lastName = claims
+                .SingleOrDefault(c => c.Type == "LastName")
+                ?.Value ?? throw new ArgumentException();
 
             return new OktaResponseValues
             {

@@ -46,8 +46,19 @@ namespace Arachne.Data.Models
                    Created.Equals(other.Created);
         }
 
-        public static bool operator ==(User first, User second) => first.Equals(second);
-        
+        public static bool operator ==(User first, User second)
+        {
+            // If left hand side is null...
+            if (ReferenceEquals(first, null))
+            {
+                // return true if both are equal and false if right is not null
+                return ReferenceEquals(second, null);
+            }
+
+            // Return true if the fields match:
+            return first.Equals(second);
+        }
+
         public static bool operator !=(User first, User second) => !(first == second);
 
         public override int GetHashCode()

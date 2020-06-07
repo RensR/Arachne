@@ -23,8 +23,8 @@ namespace Arachne.API.ASP.Repositories
 
         public User GetOrCreateUserByEmail(OktaResponseValues user)
         {
-            User foundUser;
-            if((foundUser = _arachneContext.Users.FirstOrDefault(u => u.Email  == user.Email)) == null)
+            User foundUser = _arachneContext.Users.FirstOrDefault(u => u.Email == user.Email);
+            if(foundUser == null)
             {
                 foundUser = new User
                 {
