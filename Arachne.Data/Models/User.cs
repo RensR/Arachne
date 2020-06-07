@@ -19,13 +19,13 @@ namespace Arachne.Data.Models
         
         public DateTime Created { get; set; }
         
-        public virtual IEnumerable<PotentialConnection> PotentialConnectionsFrom { get; set; }
+        public virtual List<PotentialConnection> PotentialConnectionsFrom { get; set; } = new List<PotentialConnection>();
         
-        public virtual IEnumerable<Connection> ConnectionsFrom { get; set; }
+        public virtual List<Connection> ConnectionsFrom { get; set; } = new List<Connection>();
         
-        public virtual IEnumerable<PotentialConnection> PotentialConnectionsTo { get; set; }
+        public virtual List<PotentialConnection> PotentialConnectionsTo { get; set; } = new List<PotentialConnection>();
         
-        public virtual IEnumerable<Connection> ConnectionsTo { get; set; }
+        public virtual List<Connection> ConnectionsTo { get; set; } = new List<Connection>();
         
         public override bool Equals(object obj)
         {

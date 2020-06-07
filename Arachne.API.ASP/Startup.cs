@@ -82,7 +82,7 @@ namespace Arachne.API.ASP
 
         private static void AddServices(IServiceCollection services)
         {
-            services.AddScoped<IConnectionService, ConnectionService>();
+            services.AddScoped<IConnectionService, ConnectionService>(); 
         }
     }
 }

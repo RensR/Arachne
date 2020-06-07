@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Security.Claims;
-using Arachne.API.ASP.Repositories.Interfaces;
+﻿using Arachne.API.ASP.Repositories.Interfaces;
+using Arachne.API.ASP.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace Arachne.API.ASP.Controllers
 {
@@ -28,16 +27,11 @@ namespace Arachne.API.ASP.Controllers
         [Authorize]
         public string Get()
         {
-            var userClaims = HttpContext.User.Claims;
-            var principal = HttpContext.User.Identity as ClaimsIdentity;
+            var claims = HttpContext.User.Claims.ReadClaims();
 
-            var login = principal.Claims
-                .SingleOrDefault(c => c.Type == ClaimTypes.NameIdentifier)
-                ?.Value;
+            var user = _userRepository.GetOrCreateUserByEmail(claims);
 
-            var user = _userRepository.GetUserByGuid(Guid.Parse("AA30096F-92D2-4577-8870-275DEDE203F1"));
-            var xmd = principal.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Email);
-            return userClaims.Aggregate(user.FirstName, (current, userClaim) => current + (userClaim.Type + " " + userClaim.Value));
+            return JsonConvert.SerializeObject(user);
         }
     }
 }

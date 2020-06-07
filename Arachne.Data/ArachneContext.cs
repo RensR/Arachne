@@ -49,6 +49,8 @@ namespace Arachne.Data
                 .IsRequired()
                 .HasForeignKey(c => c.ToUserId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<User>().HasIndex(u => u.Email);
         }
     }
 }

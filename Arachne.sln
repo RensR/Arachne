@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.API", "Arachne.API\Arachne.API.csproj", "{3A3C99F8-356C-41A5-AB81-4955EDDAB1BE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.Data", "Arachne.Data\Arachne.Data.csproj", "{48A23C52-51C1-4E9B-A546-E847BC164515}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.Test", "Arachne.Test\Arachne.Test.csproj", "{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}"
@@ -14,10 +12,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3A3C99F8-356C-41A5-AB81-4955EDDAB1BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A3C99F8-356C-41A5-AB81-4955EDDAB1BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A3C99F8-356C-41A5-AB81-4955EDDAB1BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A3C99F8-356C-41A5-AB81-4955EDDAB1BE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{48A23C52-51C1-4E9B-A546-E847BC164515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48A23C52-51C1-4E9B-A546-E847BC164515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48A23C52-51C1-4E9B-A546-E847BC164515}.Release|Any CPU.ActiveCfg = Release|Any CPU

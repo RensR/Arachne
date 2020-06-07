@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using Arachne.API.ASP.Models;
 using Arachne.API.ASP.Repositories.Interfaces;
 using Arachne.Data;
 using Arachne.Data.Models;
@@ -17,6 +19,26 @@ namespace Arachne.API.ASP.Repositories
         public User GetUserByGuid(Guid guid)
         {
             return _arachneContext.Users.Find(guid);
+        }
+
+        public User GetOrCreateUserByEmail(OktaResponseValues user)
+        {
+            User foundUser;
+            if((foundUser = _arachneContext.Users.FirstOrDefault(u => u.Email  == user.Email)) == null)
+            {
+                foundUser = new User
+                {
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Created = DateTime.UtcNow,
+                };
+
+                _arachneContext.Users.Add(foundUser);
+                _arachneContext.SaveChanges();
+            }
+
+            return foundUser;
         }
     }
 }
