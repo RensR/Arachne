@@ -4,14 +4,16 @@ using Arachne.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Arachne.Data.Migrations
 {
     [DbContext(typeof(ArachneContext))]
-    partial class ArachneContextModelSnapshot : ModelSnapshot
+    [Migration("20200607140337_connections")]
+    partial class connections
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
