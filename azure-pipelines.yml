@@ -14,7 +14,7 @@ trigger:
 
 jobs:
   - job: backend
-    displayName: Build Azure Functions solution
+    displayName: Build ASP.NET solution
     pool:
       vmImage: "ubuntu-16.04"
     steps:
