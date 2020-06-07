@@ -1,10 +1,10 @@
-﻿using Arachne.API.ASP.Repositories.Interfaces;
+﻿using Arachne.API.ASP.Models.Dto;
+using Arachne.API.ASP.Repositories.Interfaces;
 using Arachne.API.ASP.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace Arachne.API.ASP.Controllers
 {
@@ -25,12 +25,12 @@ namespace Arachne.API.ASP.Controllers
 
         [HttpGet]
         [Authorize]
-        public string Get()
+        public IActionResult Get()
         {
             var claims = HttpContext.User.Claims.ReadClaims();
             var user = _userRepository.GetOrCreateUserByEmail(claims);
 
-            return JsonConvert.SerializeObject(user);
+            return new OkObjectResult(UserDto.FromDal(user));
         }
     }
 }

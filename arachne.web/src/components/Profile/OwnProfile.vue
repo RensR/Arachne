@@ -28,7 +28,7 @@
         async mounted () {
             await this.getToken();
             this.$store.dispatch(FETCH_PROFILE,  this.authToken)
-            .then(user => this.user.firstName = user)
+            .then(user => this.user = user)
         }
     }
 </script>
