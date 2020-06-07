@@ -15,10 +15,6 @@ const ApiService = {
     },
 
     async get(authToken, resource, slug = "") {
-        console.log("TESTINIG INSIDE GET")
-        console.log(authToken);
-        resource =  "WeatherForecast";
-        slug = "";
         return Vue.axios.get(`${resource}/${slug}`,{
             headers: {
                 Authorization: 'Bearer ' + authToken

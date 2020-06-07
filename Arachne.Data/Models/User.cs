@@ -39,6 +39,8 @@ namespace Arachne.Data.Models
 
         protected bool Equals(User other)
         {
+            if (other == null)
+                return false;
             return Guid.Equals(other.Guid) && 
                    Email.Equals(other.Email) &&
                    FirstName == other.FirstName && 

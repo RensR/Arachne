@@ -11,13 +11,13 @@ namespace Arachne.API.ASP.Controllers
     [ApiController]
     [Route("[controller]")]
     [EnableCors]
-    public class WeatherForecastController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<UserController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IUserRepository userRepository)
+        public UserController(ILogger<UserController> logger, IUserRepository userRepository)
         {
             _logger = logger;
             _userRepository = userRepository;
@@ -28,7 +28,6 @@ namespace Arachne.API.ASP.Controllers
         public string Get()
         {
             var claims = HttpContext.User.Claims.ReadClaims();
-
             var user = _userRepository.GetOrCreateUserByEmail(claims);
 
             return JsonConvert.SerializeObject(user);
