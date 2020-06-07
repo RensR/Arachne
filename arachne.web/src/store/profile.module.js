@@ -15,14 +15,15 @@ const getters = {
 
 const actions = {
     [FETCH_PROFILE](context, payload) {
-        return UserService.get("users", payload)
+        return UserService.get(payload,"user",)
             .then(({data}) => {
                 context.commit(SET_PROFILE, data);
                 return data;
             })
             .catch((response) => {
                 // #todo SET_ERROR cannot work in multiple states
-                 context.commit(SET_ERROR, response.data.errors)
+                console.log(response);
+                context.commit(SET_ERROR, response.data.errors)
             });
     }
 };

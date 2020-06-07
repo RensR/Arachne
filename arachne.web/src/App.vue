@@ -10,6 +10,19 @@
 import PageHeader from "@/components/PageHeader";
 export default {
   name: 'App',
+  data: function () {
+    return { authenticated: false }
+  },
+  created () { this.isAuthenticated() },
+  watch: {
+    // Everytime the route changes, check for auth status
+    '$route': 'isAuthenticated'
+  },
+  methods: {
+    async isAuthenticated () {
+      this.authenticated = await this.$auth.isAuthenticated()
+    }
+  },
   components: {PageFooter, PageHeader}
 }
 

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Arachne.Data.Models;
 
-namespace Arachne.API.Repositories.Interfaces
+namespace Arachne.API.ASP.Repositories.Interfaces
 {
     public interface IPotentialConnectionRepository
     {

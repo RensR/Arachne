@@ -1,6 +1,6 @@
 using System;
 
-namespace Arachne.API.Models.Dto
+namespace Arachne.API.ASP.Models.Dto
 {
     public class PropositionDto
     {

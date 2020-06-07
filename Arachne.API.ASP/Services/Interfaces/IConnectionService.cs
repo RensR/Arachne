@@ -1,8 +1,8 @@
 using System;
-using Arachne.API.Models.Dto;
+using Arachne.API.ASP.Models.Dto;
 using Arachne.Data.Models;
 
-namespace Arachne.API.Services.Interfaces
+namespace Arachne.API.ASP.Services.Interfaces
 {
     public interface IConnectionService
     {

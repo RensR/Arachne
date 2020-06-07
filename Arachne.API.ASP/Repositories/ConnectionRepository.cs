@@ -1,6 +1,6 @@
-using Arachne.API.Repositories.Interfaces;
+using Arachne.API.ASP.Repositories.Interfaces;
 
-namespace Arachne.API.Repositories
+namespace Arachne.API.ASP.Repositories
 {
     public class ConnectionRepository : IConnectionRepository
     {

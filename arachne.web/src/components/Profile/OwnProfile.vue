@@ -20,8 +20,14 @@
                 }
             }
         },
-        mounted () {
-            this.$store.dispatch(FETCH_PROFILE, "AA30096F-92D2-4577-8870-275DEDE203F1")
+        methods: {
+            async getToken(){
+                this.authToken = await this.$auth.getAccessToken();
+            }
+        },
+        async mounted () {
+            await this.getToken();
+            this.$store.dispatch(FETCH_PROFILE,  this.authToken)
             .then(user => this.user = user)
         }
     }
