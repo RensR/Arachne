@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.Data", "Arachne.Data\Arachne.Data.csproj", "{48A23C52-51C1-4E9B-A546-E847BC164515}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arachne.Data", "Arachne.Data\Arachne.Data.csproj", "{48A23C52-51C1-4E9B-A546-E847BC164515}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.Test", "Arachne.Test\Arachne.Test.csproj", "{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arachne.Test", "Arachne.Test\Arachne.Test.csproj", "{ACB9F4FF-E800-4E68-B667-7E7E2918CA7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arachne.API.ASP", "Arachne.API.ASP\Arachne.API.ASP.csproj", "{C5074553-6C4B-4941-BFA3-38B1A908F973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Arachne.API.ASP", "Arachne.API.ASP\Arachne.API.ASP.csproj", "{C5074553-6C4B-4941-BFA3-38B1A908F973}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +27,11 @@ Global
 		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5074553-6C4B-4941-BFA3-38B1A908F973}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F674BCE5-ADD6-4A64-9D50-AAF05CAEC101}
 	EndGlobalSection
 EndGlobal
