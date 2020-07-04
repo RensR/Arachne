@@ -1,6 +1,6 @@
 using System;
 using Arachne.API.ASP.Models.Dto;
-using Arachne.API.ASP.Repositories;
+using Arachne.API.ASP.Repositories.Interfaces;
 using Arachne.API.ASP.Services.Interfaces;
 using Arachne.Data.Models;
 
@@ -8,10 +8,10 @@ namespace Arachne.API.ASP.Services
 {
     public class ConnectionService : IConnectionService
     {
-        private readonly UserRepository _userRepository;
-        private readonly PotentialConnectionRepository _potentialConnectionRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IPotentialConnectionRepository _potentialConnectionRepository;
 
-        public ConnectionService(UserRepository userRepository, PotentialConnectionRepository potentialConnectionRepository)
+        public ConnectionService(IUserRepository userRepository, IPotentialConnectionRepository potentialConnectionRepository)
         {
             _userRepository = userRepository;
             _potentialConnectionRepository = potentialConnectionRepository;
